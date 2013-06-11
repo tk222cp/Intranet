@@ -1,0 +1,4 @@
+Intranet
+========
+
+Ett enkelt intranät
