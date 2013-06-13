@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+has_many :assets, :dependent => :destroy
+accepts_nested_attributes_for :assets, :allow_destroy => true
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -6,6 +9,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :admin
   # attr_accessible :title, :body
 end

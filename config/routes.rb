@@ -1,5 +1,14 @@
 Intranet::Application.routes.draw do
+  resources :assets
+
+
   devise_for :users
+
+  namespace :admin do
+    resources :user
+  end
+
+  resources :asset
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
