@@ -11,16 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130613142817) do
+ActiveRecord::Schema.define(:version => 20130614091114) do
 
   create_table "assets", :force => true do |t|
     t.integer  "user_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.string   "file_name"
-    t.string   "content_type"
-    t.integer  "file_size"
-    t.boolean  "protected",    :default => true
+    t.string   "description"
+    t.boolean  "protected",             :default => true
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   create_table "taggings", :force => true do |t|
@@ -54,6 +57,8 @@ ActiveRecord::Schema.define(:version => 20130613142817) do
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.boolean  "admin",                  :default => false
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

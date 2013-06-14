@@ -1,14 +1,16 @@
 Intranet::Application.routes.draw do
-  resources :assets
+  
 
 
   devise_for :users
 
   namespace :admin do
-    resources :user
+    resources :users, :controller => 'user'
   end
 
-  resources :asset
+  resources :assets
+
+  match "search" => "assets#search"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

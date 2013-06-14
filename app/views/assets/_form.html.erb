@@ -12,6 +12,15 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.text_field :file_name, :placeholder => "Filename" %></br>
+    <%= f.text_area :description, :placeholder => "Description", :rows => "3" %></br>
+    <%= f.text_field :tag_list, :placeholder => "Add commaseparated tags" %></br>
+    <%= f.file_field :document %>
+
+    <% if current_user.admin? %>
+      <%= f.check_box :protected %> protected
+    <% end %>
+
+    <div><%= f.submit  :class => "btn btn-primary submit_button" %></div>
   </div>
 <% end %>

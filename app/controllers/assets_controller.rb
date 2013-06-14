@@ -11,6 +11,11 @@ class AssetsController < ApplicationController
     end
   end
 
+  def search
+    @assets = Asset.tagged_with(params[:search])
+    render 'index'
+  end
+
   # GET /assets/1
   # GET /assets/1.json
   def show

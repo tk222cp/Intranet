@@ -9,6 +9,8 @@ class Ability
         can :manage, :all
       else
         can :read, :all
+        can [:search, :read, :update, :create], Asset
+        can :update, User.where(:id => user.id)
       end
     #
     # The first argument to `can` is the action you are giving the user 

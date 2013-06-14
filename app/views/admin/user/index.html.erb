@@ -1,9 +1,9 @@
 <%= render 'shared/app_top' %>
 <div class="hero-unit">
+	<%= link_to 'New user', new_admin_user_path, :class => 'btn btn-primary pull-right' %>
 	<% @users.each do |u| %>
 		<div><%= link_to u.email, admin_user_path(u) %></div>
-	<% end %>
-	<%= link_to 'New user', new_admin_user_path, :class => 'btn btn-primary pull-right' %>
+	<% end %>	
 </div>
 
 <%= render 'shared/app_bottom' %>

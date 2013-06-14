@@ -1,0 +1,14 @@
+<%= render "shared/app_top" %>
+<div class="hero-unit">
+	<h2>Profil</h2>
+	<div>Name: <%= @user.first_name %> <%= @user.last_name %></div>
+	<div>Email: <%= @user.email %></div>
+	<div>Number of documents: <%= @user.assets.count %></div>
+	<div>
+		<ul class="unstyled inline">
+			<li><%= link_to 'Edit', edit_admin_user_path(@user) %></li> |
+			<li><%= link_to 'Back', admin_users_path %></li>
+		</ul>
+	</div>
+</div>
+<%= render "shared/app_bottom" %>

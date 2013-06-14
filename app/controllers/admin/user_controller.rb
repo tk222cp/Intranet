@@ -7,6 +7,7 @@ load_and_authorize_resource
 
 	def new
 		@user = User.new
+		5.times { @user.assets.build }
 	end
 
 	def show
@@ -17,7 +18,7 @@ load_and_authorize_resource
 		@user = User.new(params[:user])
 		if @user.save
 			flash[:notice] = "#{ @user.email } created."
-			redirect_to users_path
+			redirect_to admin_users_path
 		else
 			render :action => 'new'
 		end
@@ -25,27 +26,31 @@ load_and_authorize_resource
 
 	def edit
 		@user = User.find(params[:id])
+		5.times { @user.assets.build }
 	end
 
 	def update
-		params[:user].delete(:password) if params[:user][:password].blank?
-		params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
-		if @user.update_attributes(params[:user])
-			flash[:notice] = "Successfully updated User."
-			redirect_to users_path
-		else
-			render :action => 'edit'
-		end
-	end
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to admin_user_path(@user), notice: 'User was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
 	def delete
 	end
 
 	def destroy
-		redirect_to users_path and return if params[:cancel]
+		redirect_to admin_users_path and return if params[:cancel]
 		if @user.destroy
 			flash[:notice] = "#{ @user.email } deleted."
-			redirect_to users_path
+			redirect_to admin_users_path
 		end
 	end
 end

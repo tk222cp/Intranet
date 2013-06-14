@@ -7,17 +7,27 @@
 				<span class="icon-bar"></span>
 			</a>
 
-			<a class="brand" href="">Intranet Inc.</a>
+			<%= link_to "Intranet Inc.", root_path, :class => "brand" %>
 			<div class="nav-collapse collapse">
 				<p class="navbar-text pull-right">
 					<% if user_signed_in? %>
-						Signed in as <%= current_user.email %>.
+						Signed in as <%= link_to current_user.email, edit_admin_user_path(current_user) %>.
 							<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>						
 					<% end %>
 				</p>
 				<ul class="nav">
-					<% if current_user.admin? %>
+					<% if user_signed_in? && current_user.admin? %>
+						<li><%= link_to "Users", admin_users_path %></li>
 					<% end %>
+					<li><%= link_to "Document", assets_path %></li>
+					<li>
+						<%= form_tag(search_path, :method => 'get', :class => "form-search search_box_margin") do %>
+							<div class="input-prepend">
+								<%= submit_tag "Search", :class => "btn" %> 
+								<%= text_field_tag "search", params[:search], :placeholder => "Search for tags", :class => "span2 search-query" %>								
+							</div>
+						<% end %>
+					</li>
 				</ul>
 			</div>
 		</div>

@@ -1,0 +1,38 @@
+Göra:
+
+
+Gör:
+
+
+Gjort:
+- Markera som konsoliderat i metadata.
+- Lista utgåvor i metadata
+- Alla ingresser ska med.
+- Alla stycke efter ikraft ska med.
+- Node_id på stycken.
+- Paragraf id på stycke.
+- Nytt stycke ska med.
+- Nytt stycke på rätt ställe.
+- Ändrat stycke ska senaste version med
+- Avgör om stycke är nytt eller ändrat med textjämförelse.
+- Borttaget stycke markeras som borttaget.
+- ikraft-stycken ska läggas i ett text-element
+- ikraftstycke ska läggas i författnings-elementet- Borttaget stycke markeras i vilket dokument det togs bort.
+- listor ska markeras för att ge rätt formatering i slutdokument.
+- Gränssnitt för inläsning/sparande av dokument.
+- Se över namngivning av variabler
+- Se över dokumentation
+- Skapa färdiga konsoliderade versioner och utvärdera om automatiseringen ger
+  något.
+- Rensa, strukturera och förbättra kod.
+- Minska mängden hårdkodade strängar i koden, använd konstanter istället.
+
+Kända avvikelser:
+- Stycke kan felaktigt markeras som borttaget.
+
+Utanför exjobb:
+- Klippa in nya stycken med rätt omgivande xml-struktur.
+- Hantera författning utan paragraftecken.
+- Bugfix borttagna stycken markeras felaktigt.
+- Paragrafer ska markeras efter vilket kapitel de ligger i.
+- Stycken som ligger i tabeller skall jämföras.

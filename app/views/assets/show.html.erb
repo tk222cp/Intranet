@@ -1,5 +1,16 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/app_top' %>
 
+<p id="notice"><%= notice %></p>
+<div class="hero-unit">
+	<h2>Document | <%= @asset.file_name %></h2>
+	<div>Filename: <%= link_to @asset.document_file_name, @asset.document.url %></div>
+	<div>Description: <%= @asset.description %></div>
+	<div>Owner: <%= @asset.user.first_name %></div>
+
+	<div>Size: <%= @asset.document_file_size/1000 %> kB</div>
+</div>
 
 <%= link_to 'Edit', edit_asset_path(@asset) %> |
 <%= link_to 'Back', assets_path %>
+
+<%= render 'shared/app_bottom' %>
