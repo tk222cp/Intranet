@@ -8,9 +8,11 @@ class Ability
       if user.admin?
         can :manage, :all
       else
-        can [:search, :read, :update, :create], Asset.where(:user_id => user.id)
-        can [:search, :read], Asset.where(:protected => false)
         can :update, User.where(:id => user.id)
+        can [:read, :create, :search], Asset
+        can [:search, :show], Asset.where(:protected => false)
+        cannot [:search, :show] , Asset.where(:protected => true)
+        can [:manage], Asset.where(:user_id => user.id)
       end
     #
     # The first argument to `can` is the action you are giving the user 
