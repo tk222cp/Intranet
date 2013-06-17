@@ -6,6 +6,9 @@
   <%= link_to 'New document', new_asset_path, :class => "btn btn-primary pull-right" %>
  
   <% @assets.each do |asset| %>
+  <% if asset.protected == true && asset.user_id != current_user.id && !current_user.admin? %>
+    <% next %>
+  <% end %>
 
       <h5><%= asset.file_name %></h5>
       <p>Tags: 
