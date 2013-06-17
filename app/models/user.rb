@@ -9,4 +9,5 @@ accepts_nested_attributes_for :assets, :allow_destroy => true
          :recoverable, :rememberable, :validatable
 
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :remember_me, :admin
+  validates_presence_of :email, :first_name, :last_name, :password, :password_confirmation
 end

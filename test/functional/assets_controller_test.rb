@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class AssetsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+  fixtures :assets
+
   setup do
+    sign_in users(:one)
     @asset = assets(:one)
+    @asset.save
   end
 
   test "should get index" do
@@ -18,7 +23,7 @@ class AssetsControllerTest < ActionController::TestCase
 
   test "should create asset" do
     assert_difference('Asset.count') do
-      post :create, asset: {  }
+      post :create, :asset => { :user_id => 1, :file_name => 'Shoppinglist', :description => 'En inkopslista till personalfesten.' }
     end
 
     assert_redirected_to asset_path(assigns(:asset))

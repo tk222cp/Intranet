@@ -7,7 +7,7 @@
 	<div>Description: <%= @asset.description %></div>
 	<div>Owner: <%= @asset.user.first_name %></div>
 
-	<div>Size: <%= @asset.document_file_size/1000 %> kB</div>
+	<div>Size: <%= @size.round %> kB</div>
 </div>
 
 <%= link_to 'Edit', edit_asset_path(@asset) %> |

@@ -20,6 +20,7 @@ class AssetsController < ApplicationController
   # GET /assets/1.json
   def show
     @asset = Asset.find(params[:id])
+    @size = @asset.document_file_size.to_f / 1000
 
     if @asset.user_id = current_user.id
       respond_to do |format|

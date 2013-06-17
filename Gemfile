@@ -41,6 +41,9 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use devise
 gem 'devise'
 
+#To user ruby-prof
+gem 'ruby-prof'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 

@@ -8,4 +8,5 @@ class Asset < ActiveRecord::Base
   has_attached_file :document
 
   attr_accessible :document, :file_name, :description, :tag_list
+  validates_presence_of :file_name
 end
